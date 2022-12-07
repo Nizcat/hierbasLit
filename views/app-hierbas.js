@@ -5,6 +5,10 @@ export class AppHierbas extends LitElement {
         css`
             :host {
                 display: block;
+                width:100vw;
+                height:100vh;
+                background-color:green;
+
             }
         `
     ];

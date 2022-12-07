@@ -1,40 +1,48 @@
-import { LitElement, html } from 'lit';
-import { router } from 'lit-element-router';
+import { LitElement, html } from "lit";
+import { router } from "lit-element-router";
 
-import './app-link';
-import './app-main';
-import './views/app-hierbas'
+import "./app-link";
+import "./app-main";
+import "./views/app-hierbas";
 
-
-export class App extends LitElement {
+export class App extends router(LitElement) {
   static get properties() {
     return {
       route: { type: String },
       params: { type: Object },
-      query: { type: Object }
+      query: { type: Object },
     };
   }
 
   static get routes() {
-    return [{
-      name: 'home',
-      pattern: '',
-      data: { title: 'Home' }
-    }, {
-      name: 'info',
-      pattern: 'info'
-    }, {
-      name: 'user',
-      pattern: 'user/:id'
-    }, {
-      name: 'not-found',
-      pattern: '*'
-    }];
+    return [
+      {
+        name: "home",
+        pattern: "",
+        data: { title: "Home" },
+      },
+      {
+        name: "info",
+        pattern: "info",
+      },
+      {
+        name: "user",
+        pattern: "user/:id",
+      },
+      {
+        name: "herbs",
+        pattern: "herbs",
+      },
+      {
+        name: "not-found",
+        pattern: "*",
+      },
+    ];
   }
 
   constructor() {
     super();
-    this.route = '';
+    this.route = "";
     this.params = {};
     this.query = {};
   }
@@ -43,7 +51,9 @@ export class App extends LitElement {
     this.route = route;
     this.params = params;
     this.query = query;
-    console.log(route, params, query, data);
+    this.data = data;
+    console.log(route, params, query, data, "no se ve");
+    
   }
 
   render() {
@@ -52,15 +62,17 @@ export class App extends LitElement {
       <app-link href="/info">Info</app-link>
       <app-link href="/info?data=12345">Info?data=12345</app-link>
       <app-link href="/user/14">user/14</app-link>
+      <app-link href="/herbs">hierbas</app-link>
 
       <app-main active-route=${this.route}>
-          <h1 route='app'>Home</h1>
-          <h1 route='info'>Info ${this.query.data}</h1>
-          <h1 route='user'>User ${this.params.id} </h1>
-          <h1 route='not-found'>Not Found </h1>
+        <login-hierbas route="app"></login-hierbas>
+        <app-hierbas route="info">Hierbas</app-hierbas>
+        <h1 route="user">User ${this.params.id}</h1>
+        <login-hierbas route="herbs"></login-hierbas>
+        <h1 route="not-found">Not Found</h1>
       </app-main>
     `;
   }
 }
 
-customElements.define('my-app', App);
+customElements.define("my-app", App);
