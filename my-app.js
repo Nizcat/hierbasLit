@@ -1,8 +1,9 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
 import { router } from 'lit-element-router';
 
 import './app-link';
 import './app-main';
+import './views/app-hierbas'
 
 
 export class App extends LitElement {
@@ -53,7 +54,7 @@ export class App extends LitElement {
       <app-link href="/user/14">user/14</app-link>
 
       <app-main active-route=${this.route}>
-          <h1 route='home'>Home</h1>
+          <h1 route='app'>Home</h1>
           <h1 route='info'>Info ${this.query.data}</h1>
           <h1 route='user'>User ${this.params.id} </h1>
           <h1 route='not-found'>Not Found </h1>
