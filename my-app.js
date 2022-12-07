@@ -62,7 +62,7 @@ export class App extends router(LitElement) {
       <app-link href="/info">Info</app-link>
       <app-link href="/info?data=12345">Info?data=12345</app-link>
       <app-link href="/user/14">user/14</app-link>
-      <app-link href="/herbs">hierbas</app-link>
+      <app-link href="/herbs">hierczxbas</app-link>
 
       <app-main active-route=${this.route}>
         <login-hierbas route="app"></login-hierbas>
