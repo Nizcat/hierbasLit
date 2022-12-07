@@ -52,7 +52,7 @@ export class App extends router(LitElement) {
     this.params = params;
     this.query = query;
     this.data = data;
-    console.log(route, params, query, data, "no se ve");
+    console.log(route, params, query, data, "router");
     
   }
 
