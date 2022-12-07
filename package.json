@@ -1,0 +1,20 @@
+{
+  "name": "hierbas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wds --node-resolve --open --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lit": "^2.4.1",
+    "lit-element-router": "^2.0.3"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.35"
+  }
+}
