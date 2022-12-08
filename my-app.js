@@ -4,6 +4,7 @@ import { router } from "lit-element-router";
 import "./app-link";
 import "./app-main";
 import "./views/app-hierbas";
+import "./views/welcome-page";
 
 export class App extends router(LitElement) {
   static get properties() {
@@ -34,6 +35,11 @@ export class App extends router(LitElement) {
         pattern: "herbs",
       },
       {
+        name: "admin",
+        pattern: "admin",
+        data: { herbs: [{}] },
+      },
+      {
         name: "not-found",
         pattern: "*",
       },
@@ -58,17 +64,18 @@ export class App extends router(LitElement) {
 
   render() {
     return html`
-      <app-link href="/">Home</app-link>
+      <!--<app-link href="/">Home</app-link>
       <app-link href="/info">Info</app-link>
       <app-link href="/info?data=12345">Info?data=12345</app-link>
       <app-link href="/user/14">user/14</app-link>
-      <app-link href="/herbs">hierczxbas</app-link>
+      <app-link href="/herbs">hierczxbas</app-link>-->
 
       <app-main active-route=${this.route}>
-        <login-hierbas route="app"></login-hierbas>
+
+        <welcome-page route="home" ></welcome-page>
         <app-hierbas route="info">Hierbas</app-hierbas>
         <h1 route="user">User ${this.params.id}</h1>
-        <login-hierbas route="herbs"></login-hierbas>
+        <show-hierbas route="herbs"></show-hierbas>
         <h1 route="not-found">Not Found</h1>
       </app-main>
     `;
