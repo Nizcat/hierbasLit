@@ -1,22 +1,38 @@
 import { LitElement, html, css } from "lit";
 import { navigator } from "lit-element-router";
-import "../helpers/bring-data"
+import "../helpers/bring-data";
 
 export default class ShowHierbas extends navigator(LitElement) {
   static styles = [
     css`
       :host {
         display: flex;
+      
         width: 100vw;
         height: 100vh;
-       
-        color: white;
+
+        color: black;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        background-color: aqua;
+        color:black;
+        padding: 1em;
+        border-radius: 15px;
+        justify-content: calc();
+        align-items: center;
       }
     `,
   ];
-
-  constructor(){
+  firstUpdated() {
+    super.firstUpdated();
+    this.selectedData;
+  }
+  constructor() {
     super();
+    this.selectedData = [{}];
+
     this.addEventListener("ApiData", (e) => {
       console.log(e.detail.data, "en show data");
       this.selectedData = e.detail.data;
@@ -27,15 +43,19 @@ export default class ShowHierbas extends navigator(LitElement) {
   render() {
     return html`
       <div>
-        <form>
-          <input placeholder="datos usuario" />
-          <input placeholder="datos usuario" />
-          <input placeholder="datos usuario" />
-          <button @click="${this.linkClick}">Login</button>
-        </form>
+        <h1>aquií muestro las hierbas</h1>
+        ${this.selectedData.map(
+          (element) =>
+            html`
+              <div class="card">
+
+                <h1>${element.nombre}</h1>
+                <p>${element.descripcion}</p>
+              </div>
+            `
+        )}
       </div>
       <bring-data></bring-data>
-
     `;
   }
   linkClick(event) {

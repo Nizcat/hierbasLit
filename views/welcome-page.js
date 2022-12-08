@@ -68,7 +68,7 @@ export class WelcomePage extends navigator(LitElement) {
      
       <div class="mainContainer" >
         <div class="hierbas">
-          <div @click="${this.linkClick}" data-href="/herbs" id="divbut" class="buttoncham">
+          <div @click="${this.linkClick}" data="/herbs"  class="buttoncham">
           <h1>hierbas</h1>
           </div>
         </div>
@@ -81,10 +81,10 @@ export class WelcomePage extends navigator(LitElement) {
     `;
   }
   linkClick2(event) {
-   this.divbutton =this.shadowRoot.getElementById("divbut");
+   
     event.preventDefault();
-    console.log(this.divbutton, "click");
-    this.href = "/info";
+    console.log(event, "click");
+    this.href = "/admin";
     this.navigate(this.href);
   }
   linkClick(event) {

@@ -5,6 +5,7 @@ import "./app-link";
 import "./app-main";
 import "./views/app-hierbas";
 import "./views/welcome-page";
+import "./views/admin-view"
 
 export class App extends router(LitElement) {
   static get properties() {
@@ -77,6 +78,8 @@ export class App extends router(LitElement) {
         <h1 route="user">User ${this.params.id}</h1>
         <show-hierbas route="herbs"></show-hierbas>
         <h1 route="not-found">Not Found</h1>
+        <admin-view route="admin"></admin-view>
+
       </app-main>
     `;
   }
