@@ -14,7 +14,7 @@ export class BringData extends LitElement {
     
   }
   _sendData(data) {
-    console.log("lo llama")
+   
     this.dispatchEvent(
       new CustomEvent("ApiData", {
         detail: { data },

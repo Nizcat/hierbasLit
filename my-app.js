@@ -5,7 +5,7 @@ import "./app-link";
 import "./app-main";
 import "./views/app-hierbas";
 import "./views/welcome-page";
-import "./views/admin-view"
+import "./views/admin-view";
 
 export class App extends router(LitElement) {
   static get properties() {
@@ -36,6 +36,10 @@ export class App extends router(LitElement) {
         pattern: "herbs",
       },
       {
+        name: "desc",
+        pattern: "desc",
+      },
+      {
         name: "admin",
         pattern: "admin",
         data: { herbs: [{}] },
@@ -60,7 +64,6 @@ export class App extends router(LitElement) {
     this.query = query;
     this.data = data;
     console.log(route, params, query, data, "router");
-    
   }
 
   render() {
@@ -72,14 +75,13 @@ export class App extends router(LitElement) {
       <app-link href="/herbs">hierczxbas</app-link>-->
 
       <app-main active-route=${this.route}>
-
-        <welcome-page route="home" ></welcome-page>
+        <welcome-page route="home"></welcome-page>
         <app-hierbas route="info">Hierbas</app-hierbas>
         <h1 route="user">User ${this.params.id}</h1>
         <show-hierbas route="herbs"></show-hierbas>
         <h1 route="not-found">Not Found</h1>
         <admin-view route="admin"></admin-view>
-
+        <description-zone route="desc"></description-zone>
       </app-main>
     `;
   }

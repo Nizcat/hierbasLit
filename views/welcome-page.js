@@ -32,66 +32,71 @@ export class WelcomePage extends navigator(LitElement) {
         height: 100vh;
         width: 50vw;
         background-image: url("https://s1.eestatic.com/2021/06/08/actualidad/587452312_187437880_1706x960.jpg");
-        background-size:180%;
+        background-size: 180%;
         color: #574c1a;
       }
-      .button  {
-        margin-top:7em;
-        margin-left:2em;
-        width:10em;
-        background: radial-gradient(circle, rgba(251,217,63,1) 0%, rgba(116,52,40,1) 100%);
-        border-radius:30px;
-        display:flex;
-        justify-content:center;
-        cursor:pointer;
+      .button {
+        margin-top: 7em;
+        margin-left: 2em;
+        width: 10em;
+        background: radial-gradient(
+          circle,
+          rgba(251, 217, 63, 1) 0%,
+          rgba(116, 52, 40, 1) 100%
+        );
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
       }
       .buttoncham {
-        margin-top:2em;
-        margin-left:2em;
-        width:10em;
-        background: radial-gradient(circle, rgba(243,245,153,1) 54%, rgba(58,116,40,1) 100%);
-        border-radius:30px;
-        display:flex;
-        justify-content:center;
-        cursor:pointer;
+        margin-top: 2em;
+        margin-left: 2em;
+        width: 10em;
+        background: radial-gradient(
+          circle,
+          rgba(243, 245, 153, 1) 54%,
+          rgba(58, 116, 40, 1) 100%
+        );
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
       }
-      .admin{
-        height:4em;
-        width:4em;
-        background-color:white;
+      .admin {
+        height: 4em;
+        width: 4em;
+        background-color: white;
       }
     `,
   ];
 
   render() {
     return html`
-     
-      <div class="mainContainer" >
+      <div class="mainContainer">
         <div class="hierbas">
-          <div @click="${this.linkClick}" data="/herbs"  class="buttoncham">
-          <h1>hierbas</h1>
+          <div @click="${this.linkClick}" data="/herbs" class="buttoncham">
+            <h1>hierbas</h1>
           </div>
         </div>
         <div class="remedios">
-        <div @click="${this.linkClick2}"  class="button">
-          <h1>remedios</h1>
+          <div @click="${this.linkClick2}" data-href="/admin"class="button">
+            <h1>remedios</h1>
           </div>
         </div>
       </div>
     `;
   }
   linkClick2(event) {
-   
     event.preventDefault();
-    console.log(event, "click");
+    console.log(event.target, "click");
     this.href = "/admin";
     this.navigate(this.href);
   }
   linkClick(event) {
-   
     event.preventDefault();
     this.href = "/herbs";
-    
+
     this.navigate(this.href);
   }
 }

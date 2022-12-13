@@ -7,7 +7,7 @@ export default class ShowHierbas extends navigator(LitElement) {
     css`
       :host {
         display: flex;
-      
+
         width: 100vw;
         height: 100vh;
 
@@ -17,7 +17,7 @@ export default class ShowHierbas extends navigator(LitElement) {
         display: flex;
         flex-direction: column;
         background-color: aqua;
-        color:black;
+        color: black;
         padding: 1em;
         border-radius: 15px;
         justify-content: calc();
@@ -34,7 +34,6 @@ export default class ShowHierbas extends navigator(LitElement) {
     this.selectedData = [{}];
 
     this.addEventListener("ApiData", (e) => {
-      console.log(e.detail.data, "en show data");
       this.selectedData = e.detail.data;
       this.requestUpdate();
     });
@@ -48,7 +47,6 @@ export default class ShowHierbas extends navigator(LitElement) {
           (element) =>
             html`
               <div class="card">
-
                 <h1>${element.nombre}</h1>
                 <p>${element.descripcion}</p>
               </div>
